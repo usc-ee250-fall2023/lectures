@@ -1,0 +1,6 @@
+{
+    "name" : "Mark",
+    "id" : 12345,
+    "friends": ["Sandeep", "Gandhi", "Sandra"],
+    "scores" : {"MT" : 92.5, "FNL" : 87.0 }
+}

@@ -1,0 +1,11 @@
+<person name="Mark" id="12345">
+  <friends>
+    <friend>Bhaskar</friend>
+    <friend>Gandhi</friend>
+    <friend>Sandra</friend>
+  </friends>
+  <scores>
+    <test id="MT">92.5</test>
+    <test id="FNL">87.0</test>
+  </scores>
+</person>
