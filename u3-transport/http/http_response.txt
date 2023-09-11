@@ -1,3 +1,8 @@
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Server: netcat!
+Connection: close
+
 
 <!doctype html>
 <html>
@@ -7,4 +12,3 @@
   <p>A simple webpage!</p>
 </body>
 </html>
-
