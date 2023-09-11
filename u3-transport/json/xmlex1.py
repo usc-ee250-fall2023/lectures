@@ -1,8 +1,8 @@
-import xml.etree.ElementTree
+import xml.etree.ElementTree as ET
 import sys
 
 # Parse
-xml_person = xml.etree.ElementTree.parse(sys.argv[1])
+xml_person = ET.parse(sys.argv[1])
 
 # Get root element
 e = xml_person.getroot()
