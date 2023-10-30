@@ -5,6 +5,7 @@ r = requests.get('https://api.github.com/orgs/usc-ee250-fall2023/repos')
 print("Headers:\n" + str(r.headers))
 
 if r.status_code == 200:
+    print(r.text)
     repos = r.json()
     for repo in repos:
         print("\n")

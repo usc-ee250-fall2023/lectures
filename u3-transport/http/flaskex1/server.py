@@ -1,6 +1,7 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
 app = Flask(__name__)
 scores = []
+
 @app.route("/")
 def hello():
     return "<h1>Hello World!</h1>"

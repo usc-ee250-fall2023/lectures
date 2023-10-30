@@ -5,7 +5,7 @@ import json
 #r = requests.post('http://localhost:5000/scores', json={'score':'70'})
 
 ## formdata style
-r = requests.post('http://localhost:5000/scores', data={'score':'70'})
+r = requests.post('http://127.0.0.1:5000/scores', data={'score':'70'})
 if r.status_code == 200:
     myresponse = r.text
     print(myresponse)

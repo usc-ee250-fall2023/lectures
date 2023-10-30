@@ -12,7 +12,10 @@ myjson = {
     'scores' : [56, 66, 56],
     'dp-the-best' : True
 }
+json_string = json.dumps(myjson)
 r = requests.post('http://' + host + ':5000/submit', json=myjson)
+print(f"Status Code: {r.status_code}, Response: {r.text}")
+r = requests.get('http://' + host + ':5000/check?name=prof-red')
 print(f"Status Code: {r.status_code}, Response: {r.text}")
 
 # r = requests.post('http://localhost:5000/submit', 
@@ -23,7 +26,5 @@ print(f"Status Code: {r.status_code}, Response: {r.text}")
 #                   json={'name':'bronny', 'scores' : [56, 66, 56], 'dp-the-best' : False})
 # print(f"Status Code: {r.status_code}, Response: {r.json()}")
 
-r = requests.get('http://' + host + ':5000/check?name=gprof')
-print(f"Status Code: {r.status_code}, Response: {r.text}")
-r = requests.get('http://' + host + ':5000/check?name=gprof2')
-print(f"Status Code: {r.status_code}, Response: {r.text}")
+#r = requests.get('http://' + host + ':5000/check?name=gprof2')
+#print(f"Status Code: {r.status_code}, Response: {r.text}")
