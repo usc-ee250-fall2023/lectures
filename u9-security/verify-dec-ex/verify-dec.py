@@ -24,14 +24,14 @@ def doDecrypt(enc_sign_file, sign_key_file, sym_key_file, out_msg_file):
     with open(enc_sign_file, "rb") as bin_file:
         raw_contents = bin_file.read()
         # Separate the hash and the remaining part of the message
-        recv_encrypted_hash =   # fill me in - remember we can splice with [start:end]
-        recv_encrypted_msg =    # fill me in - remember we can splice with [start:end]
+        recv_encrypted_hash = (raw_contents[1:256]) # fill me in - remember we can splice with [start:end]
+        recv_encrypted_msg =  (raw_contents[256:])  # fill me in - remember we can splice with [start:end]
 
     # Read Necessary Public/Private Signature Key from File
     with open(sign_key_file, "rb") as key_file:
         # Use the appropriate function "load_pem_private_key" or
         # "load_pem_public_key"
-        sign_key = serialization.?????(  # fill in the appropriate function name.
+        sign_key = serialization.load_pem_public_key(  # fill in the appropriate function name.
             key_file.read(),
             backend=default_backend()
         )
@@ -39,15 +39,15 @@ def doDecrypt(enc_sign_file, sign_key_file, sym_key_file, out_msg_file):
     # Hash non-signature portion of the encrypted message
     h = hashes.SHA256()
     hasher = hashes.Hash(h)
-    hasher.update(????)                # fill me in - what should we hash?
+    hasher.update(recv_encrypted_msg)                # fill me in - what should we hash?
     digest = hasher.finalize()
     print(f"Digest: {digest}")
 
     # raises an InvalidSignature exception if signatures don't match
     # Use the sign_key.verify() function
     sign_key.verify(
-        ??????,              # fill me in
-        ??????,              # fill me in
+        digest,              # fill me in
+        recv_encrypted_hash,              # fill me in
         padding.PSS(
             mgf=padding.MGF1(hashes.SHA256()),
             salt_length=padding.PSS.MAX_LENGTH
